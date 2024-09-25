@@ -3,7 +3,13 @@ import { writeTasks } from './writeTasks.js';
 export function addTask(tasks) {
 	const addTaskButton = document.querySelector('[data-add-task-button]');
 	const inputTask = document.querySelector('[data-add-task-input]');
-	let tasksQuantity = tasks.length;
+
+	let tasksQuantity = 0;
+	if(tasks) {
+		tasksQuantity = tasks.length;
+	} else {
+		tasks = [];
+	}
 
 	addTaskButton.addEventListener('click', () => {
 		if(inputTask.value) {

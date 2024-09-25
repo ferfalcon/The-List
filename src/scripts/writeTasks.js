@@ -1,7 +1,7 @@
 export function writeTasks(tasks) {
 	let tasksWrapper = document.querySelector('[data-tasks-list]');
 
-	if (tasks.length == 0) {
+	if (!tasks) {
 		tasksWrapper.innerHTML = `<li>No tasks added yet</li>`;
 	} 
 	else 
@@ -9,5 +9,6 @@ export function writeTasks(tasks) {
 		let taskHTML = ``;
 		tasks.forEach(task => taskHTML += `<li>${task.text}</li>`);
 		tasksWrapper.innerHTML = taskHTML;
+		localStorage.setItem('tasks', JSON.stringify(tasks));
 	}
 }
